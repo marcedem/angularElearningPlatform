@@ -16,15 +16,7 @@ export class AppComponent {
         this.courses = db.list('courses');
 
         this.courses.subscribe(console.log);
-        /*
-		// Initialize Firebase
-        initializeApp(firebaseConfig);
-        var root = database().ref('messages/2');
-
-        root.on('value', function(snap){
-            console.log(snap.key, snap.val());
-        });
-        */
+    
 	}
   
 
