@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { initializeApp, database } from 'firebase';
+import { firebaseConfig } from '../environments/firebase.config';
+import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 
 @Component({
 	selector: 'app-root',
@@ -8,22 +10,21 @@ import { initializeApp, database } from 'firebase';
 })
 export class AppComponent {
 
-	constructor(){
+    courses: FirebaseListObservable<any[]>;
+
+	constructor (private db: AngularFireDatabase){
+        this.courses = db.list('courses');
+
+        this.courses.subscribe(console.log);
+        /*
 		// Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyAFG2bWg0rXGY6bz20U9DIo_zck1oKJomw",
-            authDomain: "angularelearningplatform.firebaseapp.com",
-            databaseURL: "https://angularelearningplatform.firebaseio.com",
-            projectId: "angularelearningplatform",
-            storageBucket: "",
-            messagingSenderId: "898399226903"
-        };
-        initializeApp(config);
+        initializeApp(firebaseConfig);
         var root = database().ref('messages/2');
 
         root.on('value', function(snap){
             console.log(snap.key, snap.val());
         });
+        */
 	}
   
 
