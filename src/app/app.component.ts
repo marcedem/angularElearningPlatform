@@ -18,7 +18,6 @@ export class AppComponent {
         this.courses.subscribe(console.log);
     
 	}
-  
 
   	title = 'app works!';
 }

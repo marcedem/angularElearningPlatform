@@ -1,3 +1,9 @@
-<p>
-  home works!
-</p>
+<h2>All Lessons</h2>
+
+<h4>Total Lessons: {{allLessons?.length}}</h4>
+
+<input class="search-bar" placeholder="Search">
+
+<div class="lessons-list-container v-h-center-block-parent">
+	<lessons-list [lessons]="allLessons"></lessons-list>
+</div>

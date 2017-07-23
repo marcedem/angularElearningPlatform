@@ -11,11 +11,17 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
+import {LessonsService} from "app/shared/model/lessons.service";
+
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import { LessonsListComponent } from './lessons-list/lessons-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    LessonsListComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +32,7 @@ import { HomeComponent } from './home/home.component';
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
   ],
-  providers: [],
+  providers: [LessonsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
