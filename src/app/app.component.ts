@@ -15,8 +15,7 @@ export class AppComponent {
 	constructor (private db: AngularFireDatabase){
         this.courses = db.list('courses');
 
-        this.courses.subscribe(console.log);
-    
+		//this.courses.subscribe(console.log);
 	}
 
   	title = 'app works!';

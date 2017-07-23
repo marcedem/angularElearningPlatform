@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {LessonsService} from "app/shared/model/lessons.service";
-import {Lesson} from "../shared/model/lesson";
+import {LessonsService} from 'app/shared/model/lessons.service';
+import {Lesson} from '../shared/model/lesson';
 
 
 @Component({
@@ -12,8 +12,8 @@ export class HomeComponent implements OnInit {
 
 	allLessons: Lesson[];
 	filtered: Lesson[];
-	
-	constructor(private lessonsService : LessonsService) {}
+
+	constructor(private lessonsService: LessonsService) {}
 
 	ngOnInit() {
 		// return an observable with a list of lessons
@@ -23,8 +23,8 @@ export class HomeComponent implements OnInit {
 			lessons => this.allLessons = this.filtered = lessons
 		);
 	}
-	 search(search:string) {
-        // this.filtered = this.allLessons.filter(lesson => lesson.description.includes(search) );
+	 search(search: string) {
+        this.filtered = this.allLessons.filter(lesson => lesson.description.includes(search) );
     }
 
 }

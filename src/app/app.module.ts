@@ -11,7 +11,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
-import {LessonsService} from "app/shared/model/lessons.service";
+import {LessonsService} from 'app/shared/model/lessons.service';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';

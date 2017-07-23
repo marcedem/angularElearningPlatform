@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {Lesson} from "app/shared/model/lesson";
+import {Lesson} from 'app/shared/model/lesson';
 
 @Component({
   selector: 'lessons-list',
@@ -9,7 +9,7 @@ import {Lesson} from "app/shared/model/lesson";
 export class LessonsListComponent implements OnInit {
 
   @Input()
-  lessons:Lesson[];
+  lessons: Lesson[];
 
   constructor() { }
 
