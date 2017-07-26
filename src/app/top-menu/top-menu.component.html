@@ -1,0 +1,25 @@
+
+<nav class=" cyan darken-4">
+	<div class="nav-wrapper">
+		<a href="#" class="brand-logo right">
+			<img class="logo" routerLink="home" src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
+		</a>
+		<ul id="nav-mobile" class="left">
+			<li>
+				<a routerLink="home" routerLinkActive="menu-active">Home</a>
+			</li>
+			<li>
+				<a routerLink="courses" routerLinkActive="active">Courses</a>
+			</li>
+			<li>
+				<a routerLinkActive="active" routerLink="login" *ngIf="!authInfo?.isLoggedIn()">Login</a>
+			</li>
+			<li>
+				<a routerLinkActive="active" routerLink="register" *ngIf="!authInfo?.isLoggedIn()">Register</a>
+			</li>
+			<li>
+				<a *ngIf="authInfo?.isLoggedIn()" (click)="logout()">Logout</a>
+			</li>
+		</ul>
+	</div>
+</nav>

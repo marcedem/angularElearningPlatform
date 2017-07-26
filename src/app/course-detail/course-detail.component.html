@@ -1,0 +1,22 @@
+<h2>{{ (course$ | async)?.description }}</h2>
+
+
+<div class="lessons-list-container row">
+
+    <div class=" col s12">
+        <a class="waves-effect waves-light btn left" (click)="previous()"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Previous Page</a>
+        <a class="waves-effect waves-light btn right" (click)="next()">  Next Page <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+
+    <lessons-list *ngIf="lessons" [lessons]="lessons" (lesson)="navigateToLesson($event)"></lessons-list>
+   
+    <div class="fixed-action-btn horizontal">
+        <a class="btn-floating btn-large green"  routerLink="new" [queryParams]="{courseId: (course$ | async)?.$key }">
+            <i class="large material-icons">add</i>
+        </a>
+        <ul>
+            <li><span class=""> Add New Lesson</span></li>
+        </ul>
+    </div>
+
+</div>

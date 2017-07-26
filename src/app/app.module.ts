@@ -16,12 +16,21 @@ import {LessonsService} from 'app/shared/model/lessons.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import { LessonsListComponent } from './lessons-list/lessons-list.component';
+import {RouterModule} from '@angular/router';
+import {routerConfig} from 'app/router.config';
+import { TopMenuComponent } from './top-menu/top-menu.component';
+import { CoursesComponent } from './courses/courses.component';
+import {CoursesService} from 'app/shared/model/courses.service';
+import { CourseDetailComponent } from './course-detail/course-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LessonsListComponent
+    LessonsListComponent,
+    TopMenuComponent,
+    CoursesComponent,
+    CourseDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -31,8 +40,9 @@ import { LessonsListComponent } from './lessons-list/lessons-list.component';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
+    RouterModule.forRoot(routerConfig)
   ],
-  providers: [LessonsService],
+  providers: [LessonsService, CoursesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
