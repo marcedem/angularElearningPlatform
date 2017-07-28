@@ -18,13 +18,7 @@ export class CourseDetailComponent implements OnInit {
 
     courseUrl: string;
 
-    constructor(
-                private router: Router,
-                private route: ActivatedRoute,
-                private coursesService: CoursesService) {
-
-
-    }
+    constructor(private router: Router, private route: ActivatedRoute, private coursesService: CoursesService) {}
 
     ngOnInit() {
 
@@ -42,11 +36,9 @@ export class CourseDetailComponent implements OnInit {
 
         this.coursesService.loadNextPage(
             this.courseUrl,
-            this.lessons[this.lessons.length - 1].key,
+            this.lessons[this.lessons.length - 1].$key,
             3
-        )
-        .subscribe(lessons => this.lessons = lessons);
-
+        ).subscribe(lessons => this.lessons = lessons);
 
     }
 
@@ -55,17 +47,14 @@ export class CourseDetailComponent implements OnInit {
 
         this.coursesService.loadPreviousPage(
             this.courseUrl,
-            this.lessons[0].key,
+            this.lessons[0].$key,
             3
-        )
-            .subscribe(lessons => this.lessons = lessons);
+        ).subscribe(lessons => this.lessons = lessons);
 
     }
 
     navigateToLesson(lesson: Lesson) {
-
         this.router.navigate(['lessons', lesson.url]);
-
     }
 
 

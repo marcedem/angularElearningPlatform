@@ -1,19 +1,29 @@
-import { Component, OnInit, Input } from '@angular/core';
-import {Lesson} from 'app/shared/model/lesson';
+import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
+import {Lesson} from '../shared/model/lesson';
 
 @Component({
-  selector: 'lessons-list',
-  templateUrl: './lessons-list.component.html',
-  styleUrls: ['./lessons-list.component.css']
+    // tslint:disable-next-line:component-selector
+    selector: 'lessons-list',
+    templateUrl: './lessons-list.component.html',
+    styleUrls: ['./lessons-list.component.css']
 })
 export class LessonsListComponent implements OnInit {
 
-  @Input()
-  lessons: Lesson[];
+    @Input()
+    lessons: Lesson[];
 
-  constructor() { }
+    // tslint:disable-next-line:no-output-rename
+    @Output('lesson')
+    lessonEmitter = new EventEmitter<Lesson>();
 
-  ngOnInit() {
-  }
+    constructor() { }
+
+        ngOnInit() {
+
+        }
+
+    selectLesson(lesson: Lesson) {
+        this.lessonEmitter.emit(lesson);
+    }
 
 }

@@ -21,5 +21,4 @@ export class Course {
         return json.map(Course.fromJson);
     }
 
-
 }

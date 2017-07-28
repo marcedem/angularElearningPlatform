@@ -1,6 +1,6 @@
-<div class="row" *ngFor="let lesson of lessons">
+<div class="row" *ngFor="let lesson of lessons" (click)="selectLesson(lesson)">
     <div class="col s12 m8 offset-m2">
-        <div class="card cyan lighten-1">
+        <div class="card lesson-card cyan lighten-1">
             <div class="card-content white-text">
                 <i class="fa fa-quote-left fa-2x fa-pull-left fa-border" aria-hidden="true"></i>
                 <p>{{lesson.description}}</p>

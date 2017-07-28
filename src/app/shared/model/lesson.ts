@@ -1,32 +1,19 @@
-// properties of the lessons
-
 export class Lesson {
-    key: string;
-    description: string;
-    duration: string;
-    url: string;
-    tags: string;
-    pro: boolean;
-    longDescription: string;
-    courseId: string;
 
     constructor(
-        key: string,
-        description: string,
-        duration: string,
-        url: string,
-        tags: string,
-        pro: boolean,
-        longDescription: string,
-        courseId: string) {
-
-        this.tags = tags;
-        this.description = description;
-        this.duration = duration;
+        public $key: string,
+        public description: string,
+        public duration: string,
+        public url: string,
+        public tags: string,
+        public pro: boolean,
+        public longDescription: string,
+        public courseId: string,
+        public videoUrl: string) {
 
     }
 
-    get isBiginner() {
+    get isBeginner() {
         return this.tags && this.tags.includes('BEGINNER');
     }
 
@@ -39,17 +26,10 @@ export class Lesson {
 
     // Create a lesson object from a plain javascript object
     // using ES6 destructuring
-    static fromJson({
-        key,
-        description,
-        duration,
-        url,
-        tags,
-        pro,
-        longDescription,
-        courseId
-    }): Lesson {
-        return new Lesson(key, description, duration, url, tags, pro, longDescription, courseId);
+    static fromJson({$key, description, duration, url, tags, pro, longDescription, courseId, videoUrl}): Lesson {
+        return new Lesson( $key, description, duration, url, tags, pro, longDescription, courseId, videoUrl);
     }
 
 }
+
+

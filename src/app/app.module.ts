@@ -13,8 +13,6 @@ import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 import {LessonsService} from 'app/shared/model/lessons.service';
 
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/do';
 import { LessonsListComponent } from './lessons-list/lessons-list.component';
 import {RouterModule} from '@angular/router';
 import {routerConfig} from 'app/router.config';
@@ -22,6 +20,10 @@ import { TopMenuComponent } from './top-menu/top-menu.component';
 import { CoursesComponent } from './courses/courses.component';
 import {CoursesService} from 'app/shared/model/courses.service';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
+import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
+
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { CourseDetailComponent } from './course-detail/course-detail.component';
     LessonsListComponent,
     TopMenuComponent,
     CoursesComponent,
-    CourseDetailComponent
+    CourseDetailComponent,
+    LessonDetailComponent
   ],
   imports: [
     BrowserModule,
