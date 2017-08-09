@@ -24,6 +24,7 @@ import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
+import { SafeUrlPipe } from './shared/security/safe-url.pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import 'rxjs/add/operator/do';
     TopMenuComponent,
     CoursesComponent,
     CourseDetailComponent,
-    LessonDetailComponent
+    LessonDetailComponent,
+    SafeUrlPipe
   ],
   imports: [
     BrowserModule,
