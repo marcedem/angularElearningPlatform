@@ -5,6 +5,7 @@ import {HomeComponent} from 'app/home/home.component';
 import {CoursesComponent} from 'app/courses/courses.component';
 import {CourseDetailComponent} from 'app/course-detail/course-detail.component';
 import {LessonDetailComponent} from 'app/lesson-detail/lesson-detail.component';
+import {NewLessonComponent} from 'app/new-lesson/new-lesson.component';
 
 // Simply an array
 export const routerConfig: Route [] = [
@@ -22,7 +23,16 @@ export const routerConfig: Route [] = [
         children: [
             {
                 path: ':id',
-                component: CourseDetailComponent
+                children: [
+                    {
+                        path: '',
+                        component: CourseDetailComponent
+                    },
+                    {
+                        path: 'new',
+                        component: NewLessonComponent
+                    }
+                ]
             },
             {
                 path: '',

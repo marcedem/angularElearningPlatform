@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
 import { MaterializeModule } from 'angular2-materialize';
 
 import { AppComponent } from './app.component';
@@ -24,7 +24,10 @@ import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
+import 'firebase/storage';
 import { SafeUrlPipe } from './shared/security/safe-url.pipe';
+import { NewLessonComponent } from './new-lesson/new-lesson.component';
+import { LessonFormComponent } from './lesson-form/lesson-form.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import { SafeUrlPipe } from './shared/security/safe-url.pipe';
     CoursesComponent,
     CourseDetailComponent,
     LessonDetailComponent,
-    SafeUrlPipe
+    SafeUrlPipe,
+    NewLessonComponent,
+    LessonFormComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,8 @@ import { SafeUrlPipe } from './shared/security/safe-url.pipe';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
-    RouterModule.forRoot(routerConfig)
+    RouterModule.forRoot(routerConfig),
+    ReactiveFormsModule
   ],
   providers: [LessonsService, CoursesService],
   bootstrap: [AppComponent]

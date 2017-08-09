@@ -31,6 +31,7 @@ export class LessonsService {
         .map(results => Lesson.fromJson(results[0]))
         .do(console.log);
     }
+
     loadNextLesson(courseId: string, lessonId: string): Observable<Lesson> {
         return this.db.list(`lessonsPerCourse/${courseId}`, {
             query: {
@@ -65,7 +66,7 @@ export class LessonsService {
 
         const lessonToSave = Object.assign({}, lesson, {courseId});
 
-        const newLessonKey = this.sdkDb.child('lessons').push().key;
+        const newLessonKey = this.sdkDb.ref().child('lessons').push().key;
 
         const dataToSave = {};
 
@@ -79,7 +80,7 @@ export class LessonsService {
     firebaseUpdate(dataToSave) {
         const subject = new Subject();
 
-        this.sdkDb.update(dataToSave)
+        this.sdkDb.ref().update(dataToSave)
             .then(
                 val => {
                     subject.next(val);
@@ -118,7 +119,7 @@ export class LessonsService {
 
 
     requestLessonDeletion(lessonId: string, courseId: string) {
-        this.sdkDb.child('queue/tasks').push({lessonId, courseId})
+        this.sdkDb.ref().child('queue/tasks').push({lessonId, courseId})
             .then(
                 () => alert('lesson deletion requested !')
             );
