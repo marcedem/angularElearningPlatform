@@ -6,6 +6,8 @@ import {CoursesComponent} from 'app/courses/courses.component';
 import {CourseDetailComponent} from 'app/course-detail/course-detail.component';
 import {LessonDetailComponent} from 'app/lesson-detail/lesson-detail.component';
 import {NewLessonComponent} from 'app/new-lesson/new-lesson.component';
+import {EditLessonComponent} from "app/edit-lesson/edit-lesson.component";
+import {LessonResolver} from "app/shared/model/lesson.resolver";
 
 // Simply an array
 export const routerConfig: Route [] = [
@@ -43,7 +45,19 @@ export const routerConfig: Route [] = [
     },
     {
         path: 'lessons/:id',
-        component: LessonDetailComponent
+        children: [
+            {
+                path: '',
+                component: LessonDetailComponent
+            },
+            {
+                path: 'edit',
+                component: EditLessonComponent,
+                resolve: {
+                    lesson: LessonResolver
+                }
+            }
+        ]
     },
     {
         path: '**',
