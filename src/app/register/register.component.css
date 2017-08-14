@@ -1,0 +1,7 @@
+form input:not(.browser-default){
+    border-radius: 5px;
+}
+
+form .input-field.col label {
+    left: 1.5rem;
+}

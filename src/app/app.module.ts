@@ -30,6 +30,10 @@ import { NewLessonComponent } from './new-lesson/new-lesson.component';
 import { LessonFormComponent } from './lesson-form/lesson-form.component';
 import { EditLessonComponent } from './edit-lesson/edit-lesson.component';
 import {LessonResolver} from 'app/shared/model/lesson.resolver';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import {AuthService} from 'app/shared/security/auth.service';
+import {AuthGard} from 'app/shared/security/auth.guards';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,9 @@ import {LessonResolver} from 'app/shared/model/lesson.resolver';
     SafeUrlPipe,
     NewLessonComponent,
     LessonFormComponent,
-    EditLessonComponent
+    EditLessonComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +62,7 @@ import {LessonResolver} from 'app/shared/model/lesson.resolver';
     RouterModule.forRoot(routerConfig),
     ReactiveFormsModule
   ],
-  providers: [LessonsService, CoursesService, LessonResolver],
+  providers: [LessonsService, CoursesService, LessonResolver, AuthService, AuthGard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,8 +6,11 @@ import {CoursesComponent} from 'app/courses/courses.component';
 import {CourseDetailComponent} from 'app/course-detail/course-detail.component';
 import {LessonDetailComponent} from 'app/lesson-detail/lesson-detail.component';
 import {NewLessonComponent} from 'app/new-lesson/new-lesson.component';
-import {EditLessonComponent} from "app/edit-lesson/edit-lesson.component";
-import {LessonResolver} from "app/shared/model/lesson.resolver";
+import {EditLessonComponent} from 'app/edit-lesson/edit-lesson.component';
+import {LessonResolver} from 'app/shared/model/lesson.resolver';
+import {LoginComponent} from 'app/login/login.component';
+import {RegisterComponent} from 'app/register/register.component';
+import {AuthGard} from 'app/shared/security/auth.guards';
 
 // Simply an array
 export const routerConfig: Route [] = [
@@ -48,7 +51,8 @@ export const routerConfig: Route [] = [
         children: [
             {
                 path: '',
-                component: LessonDetailComponent
+                component: LessonDetailComponent,
+                canActivate: [AuthGard]
             },
             {
                 path: 'edit',
@@ -58,6 +62,14 @@ export const routerConfig: Route [] = [
                 }
             }
         ]
+    },
+    {
+        path: 'login',
+        component: LoginComponent
+    },
+    {
+        path: 'register',
+        component: RegisterComponent
     },
     {
         path: '**',
